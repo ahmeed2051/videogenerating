@@ -148,15 +148,23 @@ CALL_TO_ACTIONS = [
     "Screenshot the breakdown and build along with me",
 ]
 
+PACINGS = {
+    "steady": "Balanced",
+    "fast": "Fast-paced",
+    "calm": "Calming",
+}
+
 
 def build_outline(beats: List[str], duration: str) -> List[Dict[str, str]]:
     outline = []
     for index, beat in enumerate(beats, start=1):
+        word_count = len(beat.split())
+        estimated_seconds = max(8, int(round(word_count / 3.5)) * 2)
         outline.append(
             {
                 "step": index,
                 "description": beat,
-                "estimated_time": f"{round(len(beat.split()) / 3.5):02d}s of the {duration} runtime",
+                "estimated_time": f"{estimated_seconds:02d}s of the {duration} runtime",
             }
         )
     return outline
@@ -182,6 +190,8 @@ def generate_idea(payload: Dict[str, str]) -> Dict[str, object]:
         "calm": "Lean into longer holds and cross-dissolves so viewers can breathe between beats.",
     }[pacing]
 
+    pacing_label = PACINGS[pacing]
+
     outline = build_outline(theme["beats"], platform["duration"])
 
     summary = textwrap.fill(
@@ -198,7 +208,7 @@ def generate_idea(payload: Dict[str, str]) -> Dict[str, object]:
         "hook": hook,
         "platform": platform,
         "tone": tone_hint,
-        "pacing": pacing.capitalize(),
+        "pacing": pacing_label,
         "summary": summary,
         "outline": outline,
         "visuals": theme["visuals"],
@@ -223,11 +233,7 @@ def get_options():
             "themes": {key: key.title() for key in VIDEO_THEMES.keys()},
             "platforms": {key: value["name"] for key, value in PLATFORMS.items()},
             "tones": {key: key.title() for key in AUDIENCE_TONES.keys()},
-            "pacings": {
-                "steady": "Balanced",
-                "fast": "Fast-paced",
-                "calm": "Calming",
-            },
+            "pacings": PACINGS,
         }
     )
 

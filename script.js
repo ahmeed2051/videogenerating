@@ -23,6 +23,29 @@ const FALLBACK_DATA = {
         'Tight voiceover pacing with 0.3s pauses between sections',
       ],
     },
+    entertainment: {
+      hooks: [
+        "3 binge-worthy releases you can't miss this weekend",
+        'What happens when a fan theory actually comes true?',
+        'The behind-the-scenes twist everyone is talking about',
+      ],
+      beats: [
+        'Open with a trending headline or clip that sparks curiosity',
+        'Break down the plot or performance highlights with punchy lower-thirds',
+        'Drop a behind-the-scenes fact or quote to surprise viewers',
+        'Wrap with a watchlist recommendation and invite hot takes in comments',
+      ],
+      visuals: [
+        'Rapid montage of posters or stills with neon overlays',
+        'Picture-in-picture reaction shots synced to key moments',
+        'Animated ticker for cast names, release dates, and streaming platforms',
+      ],
+      audio: [
+        'Upbeat pop or synth track that hits on scene transitions',
+        'Subtle crowd or studio ambience layered beneath commentary',
+        'Voiceover with energetic emphasis and playful pauses for effect',
+      ],
+    },
     travel: {
       hooks: [
         'This hidden gem is only two hours from the city',

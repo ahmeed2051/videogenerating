@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="End-to-end platform that turns English or Arabic stories into professional audio and video, ready for YouTube and TikTok."
+      content="Interactive planner that generates platform-ready video storyboards tailored to your audience."
     />
-    <title>Video Storytelling Platform</title>
+    <title>Video Idea Workshop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,22 +19,11 @@
   <body>
     <header class="site-header">
       <div class="container header-content">
-        <a class="logo" href="#top">Video Storytelling</a>
-        <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span class="sr-only">Toggle navigation</span>
-        </button>
-        <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-          <ul>
-            <li><a href="#journey">Core Journey</a></li>
-            <li><a href="#audio">Audio</a></li>
-            <li><a href="#video">Video</a></li>
-            <li><a href="#pipeline">Pipeline</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#contact">Get Access</a></li>
-          </ul>
+        <a class="logo" href="#top">Video Idea Workshop</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#planner">Planner</a>
+          <a href="#idea">Concept</a>
+          <a href="#workflow">Workflow</a>
         </nav>
       </div>
     </header>
@@ -43,279 +32,163 @@
       <section class="hero">
         <div class="container hero-content">
           <div class="hero-copy">
-            <span class="eyebrow">Creator Platform</span>
-            <h1>Transform any story into studio-ready video in minutes.</h1>
+            <span class="badge">AI video production assistant</span>
+            <h1>Turn half-formed prompts into watch-worthy stories.</h1>
             <p>
-              From text or voice to polished audio, cinematic visuals, and publishing-ready metadata—built for YouTube, TikTok, and beyond.
+              Choose your platform, tone, and pacing—our engine responds with a ready-to-shoot outline, visual direction, and
+              audio guidance tailored to creators and agencies.
             </p>
             <div class="hero-actions">
-              <a class="btn primary" href="#contact">Request Early Access</a>
-              <a class="btn secondary" href="#journey">Explore the workflow</a>
+              <a class="btn primary" href="#planner">Start planning</a>
+              <button class="btn ghost" id="demo-button" type="button">Try a live demo</button>
             </div>
-          </div>
-          <div class="hero-visual" aria-hidden="true">
-            <div class="orbit">
-              <span class="planet"></span>
-              <span class="ring"></span>
-              <span class="pulse"></span>
-            </div>
-            <p class="visual-caption">AI-assisted scripting · Neural TTS · Motion templates · QC automation</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="journey" class="section">
-        <div class="container grid two">
-          <div>
-            <h2>Craft the perfect story without leaving the browser</h2>
-            <p>
-              Upload documents, paste text, or record your voice. Our engine auto-detects English or Arabic, giving you granular control over language, pronunciation, and tone with SSML and multi-speaker assignment.
-            </p>
-          </div>
-          <ul class="feature-list">
-            <li>
-              <h3>Script Preparation</h3>
-              <p>Grammar suggestions, Arabic diacritization, profanity filtering, and glossary pronunciation overrides.</p>
-            </li>
-            <li>
-              <h3>Voice &amp; Style Controls</h3>
-              <p>Select narrator characteristics, emotion presets, speed, pitch, and pause behaviors per sentence.</p>
-            </li>
-            <li>
-              <h3>Publishing Integrations</h3>
-              <p>One-click upload to YouTube &amp; TikTok with metadata, thumbnail, and caption support.</p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="audio" class="section highlight">
-        <div class="container grid two">
-          <div>
-            <h2>Studio-grade narration, mixed and mastered automatically</h2>
-            <p>
-              Harness premium neural voices with lifelike breathing, configurable pauses, and pronunciation editors. Batch render chapters, add music and SFX, and deliver loudness-optimized audio ready for any platform.
-            </p>
-          </div>
-          <ul class="feature-cards">
-            <li>
-              <span class="card-title">Neural TTS &amp; Voice Cloning</span>
-              <p>Opt-in cloning, realistic breathing, and SSML support with per-word stress controls.</p>
-            </li>
-            <li>
-              <span class="card-title">Post-Production Suite</span>
-              <p>Noise gate, de-esser, limiter, automatic ducking, room tone, and click removal.</p>
-            </li>
-            <li>
-              <span class="card-title">Loudness Targets</span>
-              <p>Mix to -14 LUFS for long-form and -16 to -14 LUFS for shorts with ≤ -1 dBTP peaks.</p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="video" class="section">
-        <div class="container">
-          <div class="section-heading">
-            <h2>Visual storytelling that matches your voice</h2>
-            <p>
-              Choose from genre-driven templates, pair scenes with stock, AI, or uploaded visuals, and fine-tune subtitles, motion, and branding—all within a hybrid timeline and storyboard editor.
-            </p>
-          </div>
-          <div class="grid three">
-            <article class="tile">
-              <h3>Scene Engine</h3>
-              <p>Auto-split scripts by paragraph, assign assets, transitions, and text overlays per scene.</p>
-            </article>
-            <article class="tile">
-              <h3>Aspect Ratios &amp; Resolutions</h3>
-              <p>Instant presets for 16:9, 9:16, and 1:1 at 1080p or 4K, optimized for YouTube or TikTok.</p>
-            </article>
-            <article class="tile">
-              <h3>Subtitle Mastery</h3>
-              <p>Burned-in or sidecar captions, karaoke highlighting, bilingual tracks, and brand-safe styling.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="pipeline" class="section highlight">
-        <div class="container grid two">
-          <div>
-            <h2>Production pipeline built for scale</h2>
-            <p>
-              Microservices orchestrate TTS, audio post, visual compositing, and encoding with resumable jobs, caching, and detailed observability. Autoscaled workers and queueing ensure fast turnaround even during demand spikes.
-            </p>
-            <ul class="mini-list">
-              <li>Redis/RabbitMQ queues with retryable stages.</li>
-              <li>FFmpeg muxing with platform-specific presets.</li>
-              <li>Signed URLs and lifecycle policies for storage.</li>
+            <ul class="pill-group" aria-label="Workflow highlights">
+              <li>Structured outline in seconds</li>
+              <li>Visual &amp; audio inspiration</li>
+              <li>Platform specific metadata</li>
             </ul>
           </div>
-          <div class="pipeline-card">
-            <h3>Data Model Snapshot</h3>
-            <dl>
-              <div>
-                <dt>Users</dt>
-                <dd>Profiles, OAuth links, usage limits, MFA security.</dd>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="glass-card">
+              <p class="card-label">Latest Concept</p>
+              <p class="card-title">Deep Focus Study Sprint</p>
+              <p class="card-meta">Generated • 14:32 UTC</p>
+              <div class="waveform">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
               </div>
-              <div>
-                <dt>Projects &amp; Scenes</dt>
-                <dd>Language, brand kit, templates, text, timing, transitions.</dd>
-              </div>
-              <div>
-                <dt>Assets &amp; Renders</dt>
-                <dd>License registry, checksum validation, QC reports, outputs.</dd>
-              </div>
-              <div>
-                <dt>Billing</dt>
-                <dd>Credit ledger, invoices, per-provider cost tracking.</dd>
-              </div>
-            </dl>
+              <p class="card-note">Tone: Beginner friendly · Platform: YouTube Shorts</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section">
-        <div class="container grid two">
-          <div>
-            <h2>Quality, compliance, and accessibility baked in</h2>
-            <p>
-              Every render passes automated checks covering audio loudness, missing assets, subtitle coverage, contrast, and safe margins. Versioning keeps your history intact while kid-safe and GDPR-compliant policies protect your audience.
-            </p>
-          </div>
-          <ul class="mini-list">
-            <li>Accessibility presets with dyslexia-friendly fonts.</li>
-            <li>Audit trails for asset usage and consent tracking.</li>
-            <li>Policy helpers for copyright and content suitability.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="pricing" class="section highlight">
+      <section id="planner" class="section planner">
         <div class="container">
           <div class="section-heading">
-            <h2>Pricing that scales with your storytelling ambitions</h2>
-            <p>Choose the plan that matches your workflow. Upgrade anytime as your production volume grows.</p>
+            <h2>Design your video concept</h2>
+            <p>Adjust the sliders to fit your audience and platform. Every change influences the storyboard and delivery.</p>
           </div>
-          <div class="pricing-grid">
-            <article class="plan">
-              <h3>Free</h3>
-              <p class="price">$0<span>/month</span></p>
-              <ul>
-                <li>Watermarked exports</li>
-                <li>720p video, -16 LUFS audio</li>
-                <li>Community stock library</li>
-              </ul>
-              <a href="#contact" class="btn tertiary">Start for free</a>
-            </article>
-            <article class="plan popular">
-              <span class="badge">Most Popular</span>
-              <h3>Pro</h3>
-              <p class="price">$49<span>/month</span></p>
-              <ul>
-                <li>1080p exports without watermark</li>
-                <li>Premium voices &amp; templates</li>
-                <li>YouTube &amp; TikTok publishing</li>
-              </ul>
-              <a href="#contact" class="btn primary">Go Pro</a>
-            </article>
-            <article class="plan">
-              <h3>Studio</h3>
-              <p class="price">$149<span>/month</span></p>
-              <ul>
-                <li>4K rendering &amp; team workspaces</li>
-                <li>Brand kits &amp; advanced analytics</li>
-                <li>Priority support &amp; SSO</li>
-              </ul>
-              <a href="#contact" class="btn tertiary">Talk to sales</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section roadmap">
-        <div class="container grid two">
-          <div>
-            <h2>MVP today, roadmap for tomorrow</h2>
-            <p>
-              Launch with a focused set of features—text input, premium voices, essential templates, and instant exports—then layer on AI art generation, karaoke subtitles, and collaborative workflows in Phase 2.
-            </p>
-          </div>
-          <ul class="mini-list">
-            <li>MVP: timeline editor, drafts, Stripe-powered credits.</li>
-            <li>Phase 2: voice cloning, batch rendering, advanced QC.</li>
-            <li>Growth: analytics, A/B thumbnails, remix workflows.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section tech">
-        <div class="container grid two">
-          <div>
-            <h2>Modern stack for creators and engineers alike</h2>
-            <p>
-              Frontend powered by React &amp; Next.js with Tailwind CSS and ffmpeg.wasm previews. Scalable backends on Node.js or FastAPI, infrastructure as code, and observability baked in.
-            </p>
-          </div>
-          <ul class="mini-list">
-            <li>PostgreSQL + Redis for data and caching.</li>
-            <li>Autoscaled GPU/CPU worker fleet.</li>
-            <li>Terraform-managed infrastructure and CI/CD.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="contact" class="section contact">
-        <div class="container">
-          <div class="section-heading">
-            <h2>Ready to craft your next viral story?</h2>
-            <p>Join the waitlist to get early access, beta perks, and roadmap influence.</p>
-          </div>
-          <form class="contact-form">
-            <div class="input-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Jordan Lee" required />
+          <form id="idea-form" class="planner-form" autocomplete="off">
+            <div class="form-field">
+              <label for="theme">Theme</label>
+              <select id="theme" name="theme"></select>
             </div>
-            <div class="input-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            <div class="form-field">
+              <label for="platform">Platform</label>
+              <select id="platform" name="platform"></select>
             </div>
-            <div class="input-group">
-              <label for="role">How do you plan to use the platform?</label>
-              <select id="role" name="role" required>
-                <option value="">Select one</option>
-                <option>Solo creator</option>
-                <option>Agency</option>
-                <option>Media studio</option>
-                <option>Educational</option>
-              </select>
+            <div class="form-field">
+              <label for="tone">Audience level</label>
+              <select id="tone" name="tone"></select>
             </div>
-            <div class="input-group">
-              <label for="message">Tell us about your storytelling goals</label>
-              <textarea id="message" name="message" rows="4" placeholder="We publish bedtime stories in English and Arabic..." required></textarea>
+            <div class="form-field">
+              <label for="pacing">Pacing</label>
+              <div class="segmented" role="radiogroup" aria-labelledby="pacing-label">
+                <input type="radio" id="pacing-calm" name="pacing" value="calm" />
+                <label for="pacing-calm">Calm</label>
+                <input type="radio" id="pacing-steady" name="pacing" value="steady" checked />
+                <label for="pacing-steady">Balanced</label>
+                <input type="radio" id="pacing-fast" name="pacing" value="fast" />
+                <label for="pacing-fast">Fast</label>
+              </div>
             </div>
-            <button type="submit" class="btn primary">Join the waitlist</button>
+            <div class="form-actions">
+              <button class="btn primary" type="submit">Generate storyboard</button>
+              <button class="btn secondary" type="reset">Clear</button>
+            </div>
           </form>
+        </div>
+      </section>
+
+      <section id="idea" class="section idea-output" aria-live="polite">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Your AI-assisted concept</h2>
+            <p class="idea-meta" id="idea-meta">Choose your preferences and generate a storyboard to see the details here.</p>
+          </div>
+          <div id="idea-content" class="idea-content" hidden>
+            <header class="idea-header">
+              <div>
+                <p class="idea-label">Working title</p>
+                <h3 id="idea-title"></h3>
+              </div>
+              <div class="idea-badges">
+                <span id="idea-platform" class="tag"></span>
+                <span id="idea-pacing" class="tag"></span>
+              </div>
+            </header>
+            <p id="idea-summary" class="idea-summary"></p>
+            <div class="idea-grid">
+              <article class="idea-card">
+                <h4>Scene outline</h4>
+                <ol id="idea-outline" class="outline"></ol>
+              </article>
+              <article class="idea-card">
+                <h4>Visual direction</h4>
+                <ul id="idea-visuals" class="bullet-list"></ul>
+              </article>
+              <article class="idea-card">
+                <h4>Audio &amp; delivery</h4>
+                <ul id="idea-audio" class="bullet-list"></ul>
+              </article>
+              <article class="idea-card">
+                <h4>Call to action</h4>
+                <p id="idea-cta" class="cta"></p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow" class="section workflow">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Workflow built for creative teams</h2>
+            <p>
+              Export the generated outline to your editor, sync assets, and keep everyone aligned with versioned story beats,
+              music cues, and metadata that matches each platform.
+            </p>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-badge">1</span>
+              <div>
+                <h3>Collaborative scripting</h3>
+                <p>Share the generated concept with copywriters to refine hooks, add quotes, and localize for every market.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-badge">2</span>
+              <div>
+                <h3>Asset orchestration</h3>
+                <p>Our recommendations translate to shot lists, b-roll searches, and motion graphic templates automatically.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-badge">3</span>
+              <div>
+                <h3>Publishing intelligence</h3>
+                <p>Receive metadata, caption prompts, and posting cadence tips tailored to each platform and audience.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-content">
-        <div>
-          <span class="logo">Video Storytelling</span>
-          <p>Transforming words into captivating experiences across every platform.</p>
-        </div>
-        <div class="footer-meta">
-          <a href="#journey">Product</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#contact">Request access</a>
-        </div>
-        <p class="copyright">© <span id="year"></span> Video Storytelling Platform. All rights reserved.</p>
+        <p>© <span id="year"></span> Video Idea Workshop. Crafted for storytellers.</p>
+        <p class="footer-note">Backend API powered by Flask · Frontend built with vanilla JS for instant iteration.</p>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
   </body>
 </html>

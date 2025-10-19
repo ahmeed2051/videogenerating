@@ -1,119 +1,104 @@
-# Video Storytelling Platform Specification
+# Video Idea Workshop
 
-This document outlines the end-to-end product requirements for a platform that transforms English or Arabic stories into studio-quality audio and video, ready for distribution on YouTube or TikTok.
+Video Idea Workshop is a small full-stack demo that pairs a Python/Flask backend with a polished single-page frontend. It lets
+content teams experiment with platform-specific concepts and instantly receive story beats, visual inspiration, and audio
+recommendations tuned to their selections.
 
-## 1. Core User Journey
-- **Inputs**: Paste text, upload `.txt` / `.docx` / `.pdf`, or record voice with automatic transcription.
-- **Language Handling**: Auto-detect English or Arabic with manual override; support mixed-language paragraphs.
-- **Script Preparation Tools**:
-  - Spelling and grammar assistance.
-  - Optional Arabic diacritization for improved TTS output.
-  - Configurable number reading styles (e.g., "1999" pronounced as a year or an amount).
-  - Profanity filtering.
-  - Pronunciation overrides for names and glossary terms.
-- **Voice & Style Controls**:
-  - Narrator selection (gender, age, accent).
-  - Emotion presets (calm, epic, dramatic).
-  - Speed and pitch sliders, pause control, SSML markup support, and multi-speaker assignment.
-- **Audio Rendering Pipeline**: Neural TTS → mixing → mastering with targets of -14 LUFS for YouTube and -16 to -14 LUFS for vertical shorts, ≤ -1 dBTP true-peak, plus noise gate, de-esser, and limiter.
-- **Video Assembly**:
-  - Template selection (kinetic text, illustrated scenes, stock footage, AI-generated imagery).
-  - Aspect ratios (16:9, 9:16, 1:1) and resolutions (1080p default, optional 4K).
-  - Subtitle styling, intro/outro, and logo insertion.
-- **Export Options**: MP4 (H.264/AAC), separate WAV/MP3 audio, captions (SRT/VTT), thumbnail (PNG/JPEG).
-- **Publishing Integrations**: One-click upload to YouTube (title, description, tags, chapters, thumbnail, privacy) and TikTok (caption, hashtags, cover frame for 9:16), with credential linking.
 
-## 2. Audio Features (Studio-Quality Narration)
-- High-end neural TTS voices for English and Arabic, with opt-in voice cloning (with consent).
-- Realistic breathing and pause behaviors with per-sentence pause length controls.
-- Music and SFX library that is searchable and license-safe, with automatic ducking under narration and scene-linked cues.
-- Room tone insertion, tail fades, click/pop removal.
-- Pronunciation editor supporting ARPAbet/IPA and per-word stress adjustments for Arabic names.
-- Batch rendering support for chaptered stories.
+## Features
 
-## 3. Video Features (Professional Output)
-- Genre-based templates (e.g., kids bedtime, horror, sci-fi, romance, inspirational, religious).
-- Scene engine that auto-splits by paragraph; each scene includes background media, text overlays, camera motion, and transitions.
-- Asset options:
-  - **Stock**: Curated, safe library with script keyword search.
-  - **AI Images**: Per-scene generation with style presets, safety filters, and prompt history.
-  - **Uploads**: User-supplied assets with auto-cropping for aspect ratios.
-- Subtitle support: Burned-in and sidecar captions, karaoke-style highlighting, bilingual tracks.
-- Branding toolkit: Watermark, logo bug, brand colors, fonts, reusable kits.
-- Thumbnail maker with bold text, subject cutouts, and rule-of-thirds guides.
+- 🎯 **Adaptive planner** – choose the theme, platform, audience level, and pacing to tailor the outline.
+- ⚙️ **Flask API** – `/api/options` exposes planner options while `/api/ideas` returns generated storyboards.
+- 🖥️ **Modern UI/UX** – responsive layout, focus states, and accessibility-friendly typography built with vanilla HTML/CSS/JS.
+- 🧠 **Rich results** – each idea includes a hook, summary, scene-by-scene outline, visual and audio direction, and a clear call
+  to action.
+- ⚡ **Demo mode** – the “Try a live demo” button randomizes selections and generates an idea instantly.
 
-## 4. Platform-Ready Outputs (YouTube & TikTok)
-- Presets:
-  - **YouTube**: 16:9, 24/30/60 fps, ~12–16 Mbps at 1080p, -14 LUFS, auto-generated chapters, end screen assets.
-  - **TikTok/Shorts**: 9:16, 30/60 fps, ~6–8 Mbps at 1080p vertical, safe text margins, auto captions, hook-first layout.
-- Metadata editor for titles, descriptions, tags/hashtags, chapter timestamps, and audience flags (e.g., "made for kids").
-- Policy helpers: Copyright checks, content suitability checklist.
+## Getting started
 
-## 5. Editor & User Experience
-- Hybrid timeline + storyboard editor for scene arrangement, music trimming, and subtitle timing.
-- Inline preview using fast, low-resolution proxies with high-quality final passes.
-- Versioning and history management to compare takes (e.g., voice A vs voice B).
-- Autosave, drafts, keyboard shortcuts, dark mode, RTL support for Arabic.
-- Project templates (e.g., "60-sec TikTok story", "10-min YouTube narration").
+### 1. Run the backend API
 
-## 6. Quality & Compliance
-- Automated QC checklist covering loudness, peaks, missing assets, subtitle coverage, spelling, and safe margins.
-- Accessibility features: Closed captions, dyslexia-friendly fonts, color-contrast-safe palettes.
-- Legal compliance: License registry with attribution storage, GDPR-style data management, clear consent for voice cloning.
-- Kid-safe mode with COPPA-aware settings when targeting children’s stories.
+The backend lives in [`backend/app.py`](backend/app.py) and only depends on Flask.
 
-## 7. Integrations (Build vs Buy)
-- Pluggable TTS providers (Azure, Google, AWS, ElevenLabs, etc.) with per-voice cost estimates.
-- Accurate ASR with diarization for recorded inputs.
-- Stock media provider abstraction with license filters.
-- YouTube/TikTok upload APIs with OAuth, status tracking, error handling, and rate limit management.
-- Payment integrations (Stripe, Apple Pay, Google Pay) supporting credit-based rendering and subscriptions.
+```bash
+cd backend
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python app.py
+```
 
-## 8. Rendering Pipeline (Technical Overview)
-- Microservice workflow: Orchestrator → per-scene TTS workers → audio post (mixing, normalization, limiting) → visual compositor → FFmpeg mux/encode.
-- Scalability considerations: Queueing (Redis/RabbitMQ), autoscaled GPU/CPU workers, resumable jobs, idempotent stages.
-- Storage strategy: Object storage for source, intermediate, and final assets with lifecycle policies and signed URLs.
-- Observability: Stage-level logs, render timings, failure reporting, progress indicators with ETA.
-- Caching for repeated voice lines and image prompts.
+The server listens on <http://localhost:5000> by default.
 
-## 9. Data Model (High-Level)
-- **Users**: Profiles, OAuth links, usage limits, roles.
-- **Projects**: Title, language, brand kit, template, status.
-- **Scenes**: Text, timing, voice selection, assets, transitions.
-- **Assets**: Type, license, source, checksum.
-- **Renders**: Settings (ratio, fps, bitrate, loudness), outputs, QC report.
-- **Billing**: Credit ledger, invoices, provider costs.
+### 2. Serve the frontend
 
-## 10. Performance & Security
-- Client optimizations: WebAssembly previews (ffmpeg.wasm), resumable uploads, edge caching.
-- Security controls: OAuth, MFA, role-based access, rate limits, signed webhooks, content moderation.
-- Reliability: Cross-region backups, disaster recovery, job replay mechanisms.
+From the project root, launch a simple static server (any web server works – here’s one using Python):
 
-## 11. Analytics & Growth
-- Project analytics: Render counts, time saved, cost per minute, voice popularity.
-- Publishing assistance: Title/hashtag suggestions, hook performance heatmaps, A/B thumbnail testing.
-- Post-publish insights: Fetch basic YouTube/TikTok metrics, "remix for Shorts" workflows.
+```bash
+cd .. # if you're still in backend/
+python -m http.server 8000
+```
 
-## 12. Pricing & Governance
-- Tiered plans: Free (watermark, low bitrate), Pro (1080p, watermark-free), Studio (4K, teams, brand kits), EDU/Non-profit discounts.
-- Fair-use safeguards against copyrighted uploads and DMCA handling.
-- Audit trail recording asset usage and user activity.
+Open <http://localhost:8000> in your browser. The frontend automatically talks to the backend at
+<http://localhost:5000> when running on localhost.
 
-## 13. MVP vs Phase 2 Roadmap
-- **MVP Focus**:
-  - Text input with language detection.
-  - 2–3 premium voices (EN/AR) with basic SSML support.
-  - Three video templates (16:9, 9:16), stock image search, burned-in subtitles.
-  - Loudness normalization, export presets, YouTube/TikTok upload, simple thumbnailing.
-  - Timeline editor, drafts, versioning, Stripe-powered credits.
-- **Phase 2 Enhancements**:
-  - Voice cloning, AI scene art generation, karaoke subtitles, automated chaptering, brand kits.
-  - Collaboration features (comments, share links), batch rendering, analytics, A/B testing for thumbnails.
-  - Advanced QC automation, real-time previews, multi-language dubbing.
+## API reference
 
-## 14. Suggested Tech Stack
-- **Frontend**: React + Next.js (SSR), Tailwind CSS, ffmpeg.wasm for previews, RTL support.
-- **Backend**: Node.js/TypeScript or Python (FastAPI), message queues, FFmpeg worker fleet, scalable functions for burst handling.
-- **Data Layer**: PostgreSQL, Redis (queue/cache), S3-compatible object storage.
-- **Infrastructure**: Terraform-managed cloud resources, CI/CD pipelines, secrets management, usage metering.
+### `GET /api/options`
+Returns option lists used to populate the planner controls.
 
+```json
+{
+  "themes": {"education": "Education", "travel": "Travel", …},
+  "platforms": {"youtube": "YouTube", "shorts": "YouTube Shorts", …},
+  "tones": {"beginner": "Beginner", …},
+  "pacings": {"steady": "Balanced", "fast": "Fast-paced", "calm": "Calming"}
+}
+```
+
+### `POST /api/ideas`
+Accepts a JSON payload (any missing fields fall back to defaults).
+
+```json
+{
+  "theme": "education",
+  "platform": "youtube",
+  "tone": "beginner",
+  "pacing": "steady"
+}
+```
+
+Response example:
+
+```json
+{
+  "title": "This micro-class might change your career overnight",
+  "hook": "This micro-class might change your career overnight",
+  "platform": {"name": "YouTube", "duration": "6-8 minutes", "cta": "…"},
+  "tone": "Keep explanations crystal clear and friendly for first-time viewers.",
+  "pacing": "Balanced",
+  "summary": "Craft a YouTube piece built around…",
+  "outline": [{"step": 1, "description": "…", "estimated_time": "12s of the 6-8 minutes runtime"}, …],
+  "visuals": ["Clean infographics with animated callouts", …],
+  "audio": ["Calm, upbeat background track at -18 LUFS", …],
+  "call_to_action": "Drop a comment with the next problem you want solved",
+  "generated_at": "2024-05-20T12:34:56.000000Z"
+}
+```
+
+## Project structure
+
+```
+.
+├── backend/           # Flask application and requirements
+├── index.html         # Single-page UI
+├── script.js          # Fetches data and renders results
+└── styles.css         # Global design system and layout
+```
+
+## Development notes
+
+- The frontend fetches relative URLs. When deployed together (e.g., behind a reverse proxy), serve the API under the same host or
+  update `API_BASE` in [`script.js`](script.js).
+- Basic CORS headers are applied in the Flask app so the static frontend can run on a different port during development.
+- Feel free to extend [`VIDEO_THEMES`](backend/app.py) with additional genres or adjust copy decks to match your brand.
